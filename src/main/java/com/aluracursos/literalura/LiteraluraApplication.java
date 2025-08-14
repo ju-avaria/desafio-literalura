@@ -30,18 +30,5 @@ public class LiteraluraApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Principal principal = new Principal(librorepositorio, autorRepositorio);
 		principal.muestraElMenu();
-//		ConsumoAPI consumoAPI = new ConsumoAPI();
-//		var json = consumoAPI.obtenerDatos("https://gutendex.com/books/?search=frankenstein");
-//		System.out.println(json);
-//
-//		ConvierteDatos conversor = new ConvierteDatos();
-//		var datosResultados = conversor.obtenerDatos(json, DatosResult.class);
-//		System.out.println(datosResultados);
-//
-//		var nombreLibro = "frankestein";
-//		Optional<DatosLibro> datosLibro = datosResultados.resultados().stream()
-//				.filter(l -> l.titulo().toUpperCase().contains(nombreLibro.toUpperCase()))
-//				.findFirst();
-
 	}
 }

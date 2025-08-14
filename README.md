@@ -50,8 +50,10 @@ consultar detalles y descubrir nuevos títulos de forma sencilla desde la termin
 2. El repositorio en el archivo **pom.xml** tiene las siguientes **dependencias**:
    **Jackson Databind** para manipular los archivos **JSON**.
    **Driver PostgreSQL** para poder acceder a la base de datos.
-3. Para poder crear una base de datos necesitas tener instalado **PostgreSQL** en tu computadora,
-   y en el archivo **application.porperties** debes modificar el **Usuario** y la **Contraseña**,
+3. Para poder crear una base de datos necesitas tener instalado **PostgreSQL** en tu computadora, y además
+   crear una base de datos en **PostgreSQL** y cambiar la **URL** por
+   **jdbc:postgresql://localhost/nombre_de_tu_base_de_datos**
+   en el archivo **application.porperties** y también debes modificar el **Usuario** y la **Contraseña**,
    para así crear tu propio catálogo de libros.
 4. La **API** de **Gutendex** no necesita una **API KEY**, para obtener mas informacion sobre la **API**
    ingresa en el siguiente enlace:  https://gutendex.com/

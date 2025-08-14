@@ -114,7 +114,13 @@ public class Principal {
         DatosLibro datosLibro = getDatosLibro();
         if(datosLibro != null){
             Libro libro;
-            DatosAutor datosAutor = datosLibro.autor().getFirst();
+            DatosAutor datosAutor;
+            if (!datosLibro.autor().isEmpty()) {
+                datosAutor = datosLibro.autor().getFirst();
+            } else {
+                datosAutor = new DatosAutor("Anonimo", "sin registrar", "sin registrar");
+            }
+
             Autor autorExistente = autorRepositorio.findByNombre(datosAutor.nombre());
             if(autorExistente != null){
                 libro = new Libro(datosLibro, autorExistente);
@@ -141,7 +147,7 @@ public class Principal {
         System.out.println("Escriba el nombre del libro que desea buscar: ");
         var nombreLibro = consola.nextLine();
         json = consumoApi.obtenerDatos(URL_BASE + "?search=" + nombreLibro.replace(" ", "+"));
-        System.out.println(json);
+        // System.out.println(json);
         DatosResult datosBusqueda = conversor.obtenerDatos(json, DatosResult.class);
         Optional<DatosLibro> libroBuscado = datosBusqueda.resultados().stream()
                 .filter(l -> l.titulo().toUpperCase().contains(nombreLibro.toUpperCase()))
